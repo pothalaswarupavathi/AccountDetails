@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+class Account {
+	private int accountNo;
+	private String accountType;
+	private int accountBalance;
+
+	public void setAccountDetails(int accountNo, String accountType, int accountBalance) {
+		this.accountNo = accountNo;
+		this.accountType = accountType;
+		this.accountBalance = accountBalance;
+	}
+
+	public void withdraw() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter ammount to withdraw");
+		int amt = in.nextInt();
+		accountBalance = accountBalance - amt;
+	}
+
+	public void diposite() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter the amount for deposit");
+		int amt = in.nextInt();
+		accountBalance = accountBalance + amt;
+	}
+
+	public void dispAccountDetails() {
+		System.out.println("AccountNo" + " " + accountNo);
+		System.out.println("Account type" + " " + accountType);
+		System.out.println("Account Balance" + " " + accountBalance);
+	}
+}
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter account number");
+		int accountNo = in.nextInt();
+		System.out.println("Enter account Type");
+		String accountType = in.next();
+		System.out.println("Enter account balance");
+		int accountBalance = in.nextInt();
+
+		Account a = new Account();
+		a.setAccountDetails(accountNo, accountType, accountBalance);
+		a.withdraw();
+		a.diposite();
+		a.dispAccountDetails();
+
+	}
+
+}
